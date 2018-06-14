@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 export const NowPlaying = ({className, nowPlaying, children}) => (
   <div className={className}>
@@ -12,23 +13,29 @@ export const NowPlaying = ({className, nowPlaying, children}) => (
   </div>
 )
 
+NowPlaying.defaultProps = {
+  className: '',
+  nowPlaying: {}
+}
+
+NowPlaying.propTypes = {
+  className: PropTypes.string,
+  nowPlaying: PropTypes.object
+}
+
 export default styled(NowPlaying)`
   position: fixed;
   bottom: 0;
-  height: 116px;
   width: 100vw;
   max-width: 800px;
   border: solid 2px rgba(0, 0, 0, 0.3);
   border-radius: 3px;
 
-  background: #359189;
+  background: linear-gradient(to right, rgb(53, 145, 137), #185a9d);
   color: rgba(255, 255, 255, 0.9);
 
   #playerInfo {
-    padding: 10px 10px 10px;
-    height: 80px;
-    overflow: scroll;
-
+    padding: 10px 50px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -36,22 +43,19 @@ export default styled(NowPlaying)`
 
   #nowPlaying {
     position: absolute;
-    background: #359189;
+    background: linear-gradient(to right, #4F8F88, #46828C);
     top: -22px;
     left: 2px;
     border: solid 2px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
     padding: 3px;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
   }
 
   h2, p {
     text-align: center;
     margin: 0;
-  }
-
-  h2 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
   }
 
   p {

@@ -1,8 +1,9 @@
 /* eslint-env serviceworker */
 /* global fetch */
 
-const dataCacheName = 'podcasts-data-v8'
-const cacheName = 'podcasts-v8'
+const dataCacheName = 'podcasts-data-{{GENERATED_DO_NOT_CHANGE_THIS}}'
+const cacheName = 'podcasts-{{GENERATED_DO_NOT_CHANGE_THIS}}'
+
 const filesToCache = [
   '/',
   '/index.html',
@@ -31,7 +32,8 @@ self.addEventListener('install', function (e) {
       .then(files => {
         caches.open(cacheName).then(cache => {
           console.log('[ServiceWorker] Caching app shell')
-          return cache.addAll(files)
+          cache.addAll(files)
+          return self.skipWaiting()
         })
       })
   )

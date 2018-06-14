@@ -3,24 +3,28 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "folder-hash": "^2.0.0",
     "mirrorx": "^0.2.11",
     "prop-types": "^15.6.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-scripts": "1.1.4",
+    "react-sortable-hoc": "^0.8.3",
     "styled-components": "^3.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build; node updateBuildCacheVersion.js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "jest": "jest",
-    "lint": "standard --fix",
-    "travisLint": "standard"
+    "lint": "standard --fix"
   },
   "devDependencies": {
     "standard": "^11.0.1",
     "jest": "^23.1.0"
+  },
+  "standard": {
+    "parser": "babel-eslint"
   }
 }
